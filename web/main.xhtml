@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <title>WEB3</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="main.css"/>
+        <h:outputScript library="js" name="jquery-3.4.1.min.js"/>
+        <h:outputScript library="js" name="graph.js"/>
+    </h:head>
+    <h:body>
+        <header>
+            <h1 id = "head">Проверка попадания точки<br/>в заданную область</h1>
+            <h2 id = "name">Беляков Дмитрий P3210<br/>
+                Варинат 91284
+            </h2>
+        </header>
+        <div class="result_content">
+            <div id = "result">
+                <h:dataTable value="#{modelBean.list}" var="point"
+                             styleClass="table"
+                             headerClass="header"
+                             id="resultTable"
+                >
+                    <h:column>
+                        <f:facet name="header">X</f:facet>
+                        #{point.x}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Y</f:facet>
+                        #{point.y}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">R</f:facet>
+                        #{point.r}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Есть пробитие?</f:facet>
+                        #{point.inArea}
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </div>
+        <div class = "content">
+            <h:form id="form" name="form" prependId="false">
+                <h:inputHidden id="formHiddenX" value="#{modelBean.rawX}"/>
+                <h:inputHidden id="formHiddenY" value="#{modelBean.rawY}"/>
+                <h:inputHidden id="formHiddenR" value="#{modelBean.rawR}"/>
+            <div class="values">
+                    <h2 id="step1">
+                        Шаг 1: выберите значение X.
+                    </h2>
+                    <p:commandLink value="-5" id="cL-5"/>
+                    <h:outputText value="  "/>
+                    <p:commandLink value="-4" id="cL-4"/>
+                    <h:outputText value="  "/>
+                    <p:commandLink value="-3" id="cL-3"/>
+                    <h:outputText value="  "/>
+                    <p:commandLink value="-2" id="cL-2"/>
+                    <h:outputText value="  "/>
+                    <p:commandLink value="-1" id="cL-1"/>
+                    <h:outputText value="  "/>
+                    <p:commandLink value="0" id="cL0"/>
+                    <h:outputText value="  "/>
+                    <p:commandLink value="1" id="cL1"/>
+                    <h:outputText value="  "/>
+                    <p:commandLink value="2" id="cL2"/>
+                    <h:outputText value="  "/>
+                    <p:commandLink value="3" id="cL3"/>
+                    <p class = "message" id="messageX"><br/></p>
+                    <h2 id="step2">
+                        Шаг 2: выберите значение Y (-5;5).
+                    </h2>
+                    <h:inputText id ="Y" maxlength="14"/>
+                    <br/>
+                    <p class = "message" id="messageY"><br/></p>
+                    <h2 id="step3">
+                        Шаг 3: выберите значение R (1;4).
+                    </h2>
+                    <h:inputText id ="R" maxlength="14"/>
+                    <br/>
+                    <p class = "message" id="messageR"><br/></p>
+                    <p id="buttons">
+                        <h:commandButton value = "Отправить" action="#{modelBean.addToList}" styleClass="super_button" onclick="return validateForm()">
+                            <f:ajax execute="@form" render="resultTable"/>
+                        </h:commandButton>
+                        <h:commandButton action = "index" value = "Назад" styleClass="super_button"/>
+                    </p>
+            </div>
+            <div class="picture">
+                    <canvas height='270' width='270' id='areas'/>
+                    <p:remoteCommand name="canvasAction" action="#{modelBean.addToList}" update="resultTable"/>
+            </div>
+        </h:form>
+        </div>
+    </h:body>
+</f:view>
+</html>

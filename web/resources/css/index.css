@@ -1,0 +1,62 @@
+*{
+    font-family: sans-serif;
+    font-size: 10pt;
+    color: #5F5FBD;
+    font-weight: bold;
+}
+html{
+    margin: 2%;
+    box-shadow: 0 0 0 20px #5F5FBD, 0 0 0 10px white;
+    height: 100%;
+    overflow: hidden;
+}
+h1{
+    font-size: 40pt;
+    text-align: center;
+    vertical-align: middle;
+}
+h2{
+    font-size: 16pt;
+}
+#welcome{
+    font-size: 50pt;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+.values, .picture{
+    width: 50%;
+}
+.super_button{
+    color: white;
+    background: #5F5FBD;
+    border: 2px solid #5F5FBD;
+    width: 30%;
+    height: 60px;
+    font-size: 25pt;
+    margin: auto;
+    display: block;
+}
+.super_button:hover{
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #5F5FBD;
+}
+body{
+    margin: 0.001%;
+}
+#head{
+    background: #5F5FBD;
+    color: white;
+    margin: 1px;
+    height: 135px
+}
+#header h2{
+    margin-left: 1%;
+}
+#button_label{
+    text-align: center;
+}
+#time{
+    text-align: center;
+    font-size: 25pt;
+    margin-bottom: 5%;
+}

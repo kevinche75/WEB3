@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <f:view>
+      <h:head>
+         <title>WEB3</title>
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+         <h:outputStylesheet library="css" name="index.css"/>
+          <h:outputScript library="js" name="jquery-3.4.1.min.js"/>
+          <h:outputScript library="js" name="time.js"/>
+      </h:head>
+      <h:body>
+         <div id = "header">
+            <h1 id = "head">Проверка попадания точки<br/>в заданную область</h1>
+            <h2 id = "name">Беляков Дмитрий P3210<br/>
+               Варинат 91284
+            </h2>
+         </div>
+         <div id = "content">
+            <h2 id = "welcome">
+               WELCOME
+            </h2>
+            <div id = "time"/>
+            <div id = "button_label">
+                <h:form>
+                    <h:commandButton action = "main" value = "SHOW" styleClass="super_button"/>
+                </h:form>
+            </div>
+         </div>
+      </h:body>
+   </f:view>
+</html>
