@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project name = "Lab3" default="main" basedir=".">
+    <property file="build.properties"/>
+
+    <path id="classpathCompile">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+    </path>
+
+    <path id="classpathTestcompile">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+        <pathelement path="${build.main}"/>
+    </path>
+
+    <path id="test">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+        <pathelement path="${build.main}"/>
+        <pathelement path="${build.test}"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${doc}"/>
+        <echo message="Clean done"/>
+    </target>
+</project>
