@@ -105,12 +105,14 @@
     </target>
 
     <target name="test" depends="build">
-        <junit printsummary="yes">
-            <classpath refid="test"/>
+        <junit printsummary="on">
+            <classpath location="."/>
             <batchtest>
-                <fileset dir="${production.test}"/>
+                <fileset dir="${production.test}">
+                    <include name="*Test*.class"/>
+                </fileset>
             </batchtest>
-<formatter type="xml"/>
+            <formatter type="brief" usefile="false"/>
         </junit>
     </target>
 </project>

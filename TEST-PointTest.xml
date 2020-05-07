@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="1" failures="0" hostname="kevinche-pc" name="PointTest" skipped="0" tests="1" time="0.0" timestamp="2020-05-07T21:42:12">
+<testsuite errors="1" failures="0" hostname="kevinche-pc" name="PointTest" skipped="0" tests="1" time="0.0" timestamp="2020-05-07T22:01:19">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -65,7 +65,7 @@
     <property name="build.classes" value="build/WEB-INF/classes" />
     <property name="sun.cpu.endian" value="little" />
     <property name="sun.os.patch.level" value="unknown" />
-    <property name="build.version" value="6" />
+    <property name="build.version" value="16" />
     <property name="src.test" value="src/test" />
     <property name="java.io.tmpdir" value="/tmp" />
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
