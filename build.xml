@@ -68,10 +68,53 @@
         <javac srcdir="${src.test}" destdir="${build.test}" classpathref="classpathTestCompile"/>
     </target>
 
-    <target name="war" depends="copy">
+    <target name="build" depends="copy">
         <echo>Building the war file</echo>
         <war destfile="${dist}/${project.name}.war" webxml="${build.main}/WEB-INF/web.xml">
             <fileset dir="${build.main}"/>
         </war>
+        <propertyfile file="build.properties">
+            <entry key="build.version" type="int" operation="+" value="1" pattern="0"/>
+        </propertyfile>
+    </target>
+
+    <target name="genchecksum" depends="init">
+        <checksum todir="${cache}/MD5" algorithm="MD5" totalproperty="md5">
+            <fileset dir="${src.test}"/>
+            <fileset dir="${src.main}"/>
+            <fileset dir="${lib}"/>
+        </checksum>
+
+        <checksum todir="${cache}/SHA1" algorithm="SHA-1" totalproperty="sha1">
+            <fileset dir="${src.test}"/>
+            <fileset dir="${src.main}"/>
+            <fileset dir="${lib}"/>
+        </checksum>
+    </target>
+
+    <target name="doc" depends="clean, genchecksum">
+        <manifest file="${manifest}">
+            <attribute name="MD5" value="${md5}"/>
+            <attribute name="SHA-1" value="${sha1}"/>
+            <attribute name="Version" value="${build.version}"/>
+        </manifest>
+        <javadoc destdir="${doc}" classpathref="classpathCompile">
+            <fileset dir="${src.main}"/>
+        </javadoc>
+    </target>
+
+    <target name="diff">
+        <exec executable="git">
+            <arg line="status"/>
+        </exec>
+        <exec executable="git">
+            <arg line="add ${src.main}"/>
+        </exec>
+        <exec executable="git">
+            <arg line="reset -- ${git.ignor}"/>
+        </exec>
+        <exec executable="git">
+            <arg line="commit -m '${commit.name} version ${build.version}'"/>
+        </exec>
     </target>
 </project>
