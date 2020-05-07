@@ -6,15 +6,10 @@
         <fileset dir="${lib}" includes="**/*.jar"/>
     </path>
 
-    <path id="classpathTestcompile">
-        <fileset dir="${lib}" includes="**/*.jar"/>
-        <pathelement path="${build.main}"/>
-    </path>
-
     <path id="test">
         <fileset dir="${lib}" includes="**/*.jar"/>
-        <pathelement path="${build.main}"/>
-        <pathelement path="${build.test}"/>
+        <pathelement path="${production.main}"/>
+        <pathelement path="${production.test}"/>
     </path>
 
     <path id="classpathTestCompile">
