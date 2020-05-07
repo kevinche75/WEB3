@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<project name = "Lab3" default="compile" basedir=".">
+    <property file="build.properties"/>
+
+    <path id="classpathCompile">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+    </path>
+
+    <path id="classpathTestcompile">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+        <pathelement path="${build.main}"/>
+    </path>
+
+    <path id="test">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+        <pathelement path="${build.main}"/>
+        <pathelement path="${build.test}"/>
+    </path>
+
+    <path id="classpathTestCompile">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+        <pathelement path="${build.main}/WEB-INF/classes"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${doc}"/>
+        <delete dir="${cache}"/>
+        <delete dir="${dist}"/>
+        <echo message="Clean done"/>
+    </target>
+
+    <target name="init">
+        <mkdir dir="${build.main}"/>
+        <mkdir dir="${build.main}/WEB-INF/classes"/>
+        <mkdir dir="${build.main}/WEB-INF/lib"/>
+        <mkdir dir="${build.main}/resources"/>
+        <mkdir dir="${build.test}"/>
+        <mkdir dir="${doc}"/>
+        <mkdir dir="${cache}"/>
+        <mkdir dir="${dist}"/>
+        <echo>Creating the build directory</echo>
+    </target>
+
+    <target name="compile" depends="clean, init">
+        <echo>Compile the source files</echo>
+        <javac srcdir="${src.main}" destdir="${build.main}/WEB-INF/classes" classpathref="classpathCompile" errorProperty="compile.fail"
+               failonerror="false"/>
+    </target>
+
+    <target name="copy" depends="compile">
+        <copy todir="${build.main}/resources">
+            <fileset dir="${web.content}"/>
+        </copy>
+        <copy todir="${build.main}/WEB-INF/lib">
+            <fileset dir="${lib}"/>
+        </copy>
+        <copy todir="${build.main}/WEB-INF">
+            <fileset dir="web/WEB-INF"/>
+        </copy>
+        <copy todir="${build.main}">
+            <fileset file="web/index.xhtml"/>
+            <fileset file="web/main.xhtml"/>
+        </copy>
+    </target>
+
+    <target name="testCompile" depends="compile">
+        <javac srcdir="${src.test}" destdir="${build.test}" classpathref="classpathTestCompile"/>
+    </target>
+
+    <target name="war" depends="copy">
+        <echo>Building the war file</echo>
+        <war destfile="${dist}/${project.name}.war" webxml="${build.main}/WEB-INF/web.xml">
+            <fileset dir="${build.main}"/>
+        </war>
+    </target>
+
+    <target name="genchecksum" depends="init">
+        <checksum todir="${cache}/MD5" algorithm="MD5" totalproperty="md5">
+            <fileset dir="${src.test}"/>
+            <fileset dir="${src.main}"/>
+            <fileset dir="${lib}"/>
+        </checksum>
+
+        <checksum todir="${cache}/SHA1" algorithm="SHA-1" totalproperty="sha1">
+            <fileset dir="${src.test}"/>
+            <fileset dir="${src.main}"/>
+            <fileset dir="${lib}"/>
+        </checksum>
+    </target>
+
+    <target name="doc" depends="clean, genchecksum">
+        <manifest file="${manifest}">
+            <attribute name="MD5" value="${md5}"/>
+            <attribute name="SHA-1" value="${sha1}"/>
+        </manifest>
+        <javadoc destdir="${doc}" classpathref="classpathCompile">
+            <fileset dir="${src.main}"/>
+        </javadoc>
+    </target>
+</project>
