@@ -1,6 +1,7 @@
 package main;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 //message
 
@@ -89,5 +90,21 @@ public class Point{
             return;
         }
         isInArea = false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return Objects.equals(r, point.r) &&
+                Objects.equals(x, point.x) &&
+                Objects.equals(y, point.y) &&
+                Objects.equals(isInArea, point.isInArea);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(r, x, y, isInArea);
     }
 }

@@ -108,4 +108,14 @@
             <arg line="commit -m '${commit.name} version ${build.version}'"/>
         </exec>
     </target>
+
+    <target name="test" depends=" build,testCompile">
+        <junit printsummary="yes">
+            <classpath refid="test"/>
+            <batchtest>
+                <fileset dir="${build.test}"/>
+            </batchtest>
+<formatter type="xml"/>
+        </junit>
+    </target>
 </project>
