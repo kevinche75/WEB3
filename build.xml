@@ -41,6 +41,8 @@
         <echo>Compile the source files</echo>
         <javac srcdir="${src.main}" destdir="${build.main}/WEB-INF/classes" classpathref="classpathCompile" errorProperty="compile.fail"
                failonerror="false"/>
+        <javac srcdir="${src.test}" destdir="${build.test}" classpathref="classpathCompile" errorProperty="compile.fail"
+               failonerror="false"/>
     </target>
 
     <target name="copy" depends="compile">
