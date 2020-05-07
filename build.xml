@@ -44,7 +44,7 @@
 
     <target name="compile" depends="clean, init">
         <echo>Compile the source files</echo>
-        <javac srcdir="${src.main}" destdir="${build.main}/WEB-INF/classes" classpathref="classpathCompile" errorProperty="compile.fail"
+        <javac srcdir="${src.main}" destdir="${build.main}/WEB-INF/classes" classpathref="classpathCompile" compiler="javac1.7"
                failonerror="false"/>
     </target>
 
