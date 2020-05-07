@@ -109,7 +109,7 @@
         </exec>
     </target>
 
-    <target name="test" depends=" build,testCompile">
+    <target name="test" depends=" build">
         <junit printsummary="yes">
             <classpath refid="test"/>
             <batchtest>
