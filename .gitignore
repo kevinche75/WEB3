@@ -1,0 +1,14 @@
+
+.idea/artifacts/
+
+.idea/
+
+build/main/
+
+dist/
+
+out/artifacts/web3_war_exploded.war/
+
+out/production/web3/
+
+web3.iml

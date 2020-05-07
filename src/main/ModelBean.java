@@ -1,3 +1,6 @@
+package main;
+
+import main.HibernateUtil;
 import org.hibernate.Session;
 
 import javax.faces.bean.ApplicationScoped;
