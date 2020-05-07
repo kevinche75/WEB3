@@ -12,3 +12,7 @@ out/artifacts/web3_war_exploded.war/
 out/production/web3/
 
 web3.iml
+
+cache/
+
+doc/
