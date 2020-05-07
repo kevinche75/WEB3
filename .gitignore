@@ -16,3 +16,11 @@ web3.iml
 cache/
 
 doc/
+
+build/resources/css/
+
+build/
+
+production/main/
+
+production/test/

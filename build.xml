@@ -19,7 +19,7 @@
 
     <path id="classpathTestCompile">
         <fileset dir="${lib}" includes="**/*.jar"/>
-        <pathelement path="${build.main}/WEB-INF/classes"/>
+        <pathelement path="${build}/WEB-INF/classes"/>
     </path>
 
     <target name="clean">
@@ -27,51 +27,42 @@
         <delete dir="${doc}"/>
         <delete dir="${cache}"/>
         <delete dir="${dist}"/>
+        <delete dir="${production}"/>
         <echo message="Clean done"/>
     </target>
 
     <target name="init">
-        <mkdir dir="${build.main}"/>
-        <mkdir dir="${build.main}/WEB-INF/classes"/>
-        <mkdir dir="${build.main}/WEB-INF/lib"/>
-        <mkdir dir="${build.main}/resources"/>
-        <mkdir dir="${build.test}"/>
+
+        <mkdir dir="${build}"/>
         <mkdir dir="${doc}"/>
         <mkdir dir="${cache}"/>
         <mkdir dir="${dist}"/>
+        <mkdir dir="${production}"/>
         <echo>Creating the build directory</echo>
     </target>
 
+<!--    compiler="javac1.7"-->
+
     <target name="compile" depends="clean, init">
         <echo>Compile the source files</echo>
-        <javac srcdir="${src.main}" destdir="${build.main}/WEB-INF/classes" classpathref="classpathCompile" compiler="javac1.7"
+        <javac srcdir="${src}" destdir="${production}" classpathref="classpathCompile"
                failonerror="false"/>
     </target>
 
     <target name="copy" depends="compile">
-        <copy todir="${build.main}/resources">
+        <copy todir="${build}">
             <fileset dir="${web.content}"/>
         </copy>
-        <copy todir="${build.main}/WEB-INF/lib">
-            <fileset dir="${lib}"/>
+        <mkdir dir="${build.classes}"/>
+        <copy todir="${build.classes}">
+            <fileset dir="${production.main}"/>
         </copy>
-        <copy todir="${build.main}/WEB-INF">
-            <fileset dir="web/WEB-INF"/>
-        </copy>
-        <copy todir="${build.main}">
-            <fileset file="web/index.xhtml"/>
-            <fileset file="web/main.xhtml"/>
-        </copy>
-    </target>
-
-    <target name="testCompile" depends="compile">
-        <javac srcdir="${src.test}" destdir="${build.test}" classpathref="classpathTestCompile"/>
     </target>
 
     <target name="build" depends="copy">
         <echo>Building the war file</echo>
-        <war destfile="${dist}/${project.name}.war" webxml="${build.main}/WEB-INF/web.xml">
-            <fileset dir="${build.main}"/>
+        <war destfile="${dist}/${project.name}.war" webxml="${build}/WEB-INF/web.xml">
+            <fileset dir="${build}"/>
         </war>
         <propertyfile file="build.properties">
             <entry key="build.version" type="int" operation="+" value="1" pattern="0"/>
