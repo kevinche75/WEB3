@@ -98,4 +98,20 @@
             <fileset dir="${src.main}"/>
         </javadoc>
     </target>
+
+    <target name="diff">
+        <exec executable="git">
+            <arg line="status"/>
+        </exec>
+        <exec executable="git">
+            <arg line="add *"/>
+        </exec>
+        <exec executable="git">
+            <arg line="reset -- ${git.ignor}"/>
+        </exec>
+        <exec executable="git">
+            <arg line="commit -m ${commit.name}"/>
+        </exec>
+        <echo message="${git.ignor}"/>
+    </target>
 </project>
