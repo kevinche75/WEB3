@@ -109,11 +109,11 @@
         </exec>
     </target>
 
-    <target name="test" depends=" build">
+    <target name="test" depends="build">
         <junit printsummary="yes">
             <classpath refid="test"/>
             <batchtest>
-                <fileset dir="${build.test}"/>
+                <fileset dir="${production.test}"/>
             </batchtest>
 <formatter type="xml"/>
         </junit>
