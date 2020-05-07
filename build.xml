@@ -124,7 +124,7 @@
             <batchtest>
                 <fileset dir="${build.test}"/>
             </batchtest>
-
+<formatter type="xml"/>
         </junit>
     </target>
 </project>
