@@ -67,4 +67,11 @@
     <target name="testCompile" depends="compile">
         <javac srcdir="${src.test}" destdir="${build.test}" classpathref="classpathTestCompile"/>
     </target>
+
+    <target name="war" depends="copy">
+        <echo>Building the war file</echo>
+        <war destfile="${dist}/${project.name}.war" webxml="${build.main}/WEB-INF/web.xml">
+            <fileset dir="${build.main}"/>
+        </war>
+    </target>
 </project>
