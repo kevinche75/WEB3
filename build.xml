@@ -104,7 +104,7 @@
             <arg line="status"/>
         </exec>
         <exec executable="git">
-            <arg line="add *"/>
+            <arg line="add ${src.main}"/>
         </exec>
         <exec executable="git">
             <arg line="reset -- ${git.ignor}"/>
