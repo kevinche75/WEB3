@@ -2,6 +2,8 @@ package main;
 
 import javax.persistence.*;
 
+//message
+
 @Entity
 @Table
 
