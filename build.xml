@@ -17,6 +17,11 @@
         <pathelement path="${build.test}"/>
     </path>
 
+    <path id="classpathTestCompile">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+        <pathelement path="${build.main}/WEB-INF/classes"/>
+    </path>
+
     <target name="clean">
         <delete dir="${build}"/>
         <delete dir="${doc}"/>
@@ -41,8 +46,6 @@
         <echo>Compile the source files</echo>
         <javac srcdir="${src.main}" destdir="${build.main}/WEB-INF/classes" classpathref="classpathCompile" errorProperty="compile.fail"
                failonerror="false"/>
-        <javac srcdir="${src.test}" destdir="${build.test}" classpathref="classpathCompile" errorProperty="compile.fail"
-               failonerror="false"/>
     </target>
 
     <target name="copy" depends="compile">
@@ -59,5 +62,9 @@
             <fileset file="web/index.xhtml"/>
             <fileset file="web/main.xhtml"/>
         </copy>
+    </target>
+
+    <target name="testCompile" depends="compile">
+        <javac srcdir="${src.test}" destdir="${build.test}" classpathref="classpathTestCompile"/>
     </target>
 </project>
