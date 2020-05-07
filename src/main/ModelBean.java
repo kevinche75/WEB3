@@ -1,5 +1,7 @@
 package main;
 
+//someвыв
+
 import main.HibernateUtil;
 import org.hibernate.Session;
 
