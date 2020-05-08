@@ -52,6 +52,9 @@
         <copy todir="${build.classes}">
             <fileset dir="${production.main}"/>
         </copy>
+        <copy todir="${build.lib}">
+            <fileset dir="${lib}"/>
+        </copy>
     </target>
 
     <target name="build" depends="copy">
