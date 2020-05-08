@@ -93,9 +93,9 @@
     </target>
 
     <target name="diff">
-        <exec executable="git">
-            <arg line="status"/>
-        </exec>
+<!--        <exec executable="git">-->
+<!--            <arg line="status"/>-->
+<!--        </exec>-->
         <exec executable="git">
             <arg line="add *"/>
         </exec>
