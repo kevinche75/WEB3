@@ -111,9 +111,9 @@
         <junit printsummary="on">
             <test name="test.PointTest"/>
             <classpath>
-                <pathelement location="lib/junit-4.12.jar"/>
-                <pathelement location="lib/hamcrest-all-1.3.jar"/>
-                <pathelement location="production"/>
+                <pathelement location="${lib}/junit-4.12.jar"/>
+                <pathelement location="${lib}/hamcrest-all-1.3.jar"/>
+                <pathelement location="${production}"/>
             </classpath>
         </junit>
     </target>
