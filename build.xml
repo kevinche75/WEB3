@@ -7,14 +7,14 @@
     </path>
 
     <path id="test">
-        <fileset dir="${lib}" includes="**/*.jar"/>
+        <fileset dir="${lib}" includes="*.jar"/>
         <pathelement path="${production.main}"/>
         <pathelement path="${production.test}"/>
     </path>
 
     <path id="classpathTestCompile">
         <fileset dir="${lib}" includes="**/*.jar"/>
-        <pathelement path="${build}/WEB-INF/classes"/>
+        <pathelement path="${production.main}"/>
     </path>
 
     <target name="clean">
@@ -106,13 +106,12 @@
 
     <target name="test" depends="build">
         <junit printsummary="on">
-            <classpath location="."/>
-            <batchtest>
-                <fileset dir="${production.test}">
-                    <include name="*Test*.class"/>
-                </fileset>
-            </batchtest>
-            <formatter type="brief" usefile="false"/>
+            <test name="test.PointTest"/>
+            <classpath>
+                <pathelement location="lib/junit-4.12.jar"/>
+                <pathelement location="production"/>
+            </classpath>
         </junit>
     </target>
+
 </project>
