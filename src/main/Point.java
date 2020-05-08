@@ -3,7 +3,7 @@ package main;
 import javax.persistence.*;
 import java.util.Objects;
 
-//message
+//mdasdlnas
 
 @Entity
 @Table
