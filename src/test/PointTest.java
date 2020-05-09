@@ -19,7 +19,7 @@ public class PointTest {
 
         points = new ArrayList<>();
         results=new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("F:\\msp\\WEB3\\src\\test\\test.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/test/test.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[]values = line.split("\t");
