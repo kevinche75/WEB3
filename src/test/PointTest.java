@@ -240,4 +240,60 @@ public class PointTest {
         Assert.assertEquals(points.get(34).getInArea(),results.get(34));
     }
 
+    @Test
+    public void checkPoint35(){
+        Assert.assertEquals(points.get(35).getInArea(),results.get(35));
+    }
+
+    @Test
+    public void checkPoint36(){
+        Assert.assertEquals(points.get(36).getInArea(),results.get(36));
+    }
+
+    @Test
+    public void checkPoint37(){
+        Assert.assertEquals(points.get(37).getInArea(),results.get(37));
+    }
+
+    @Test
+    public void checkPoint38(){
+        Assert.assertEquals(points.get(38).getInArea(),results.get(38));
+    }
+
+    @Test
+    public void checkPoint39(){
+        Assert.assertEquals(points.get(39).getInArea(),results.get(39));
+    }
+
+    @Test
+    public void checkPoint40(){
+        Assert.assertEquals(points.get(40).getInArea(),results.get(40));
+    }
+
+    @Test
+    public void checkPoint41(){
+        Assert.assertEquals(points.get(41).getInArea(),results.get(41));
+    }
+
+    @Test
+    public void checkPoint42(){
+        Assert.assertEquals(points.get(42).getInArea(),results.get(42));
+    }
+
+    @Test
+    public void checkPoint43(){
+        Assert.assertEquals(points.get(43).getInArea(),results.get(43));
+    }
+
+    @Test
+    public void checkPoint44(){
+        Assert.assertEquals(points.get(44).getInArea(),results.get(44));
+    }
+
+    @Test
+    public void checkPoint45(){
+        Assert.assertEquals(points.get(45).getInArea(),results.get(45));
+    }
+
+
 }
