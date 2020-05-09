@@ -145,6 +145,102 @@ public class PointTest {
     }
 
 
+    @Test
+    public void checkPoint19(){
+        Assert.assertEquals(points.get(19).getInArea(),results.get(19));
+    }
+
+
+    @Test
+    public void checkPoint20(){
+        Assert.assertEquals(points.get(20).getInArea(),results.get(20));
+    }
+
+
+    @Test
+    public void checkPoint21(){
+        Assert.assertEquals(points.get(21).getInArea(),results.get(21));
+    }
+
+
+    @Test
+    public void checkPoint22(){
+        Assert.assertEquals(points.get(22).getInArea(),results.get(22));
+    }
+
+
+    @Test
+    public void checkPoint23(){
+        Assert.assertEquals(points.get(23).getInArea(),results.get(23));
+    }
+
+
+    @Test
+    public void checkPoint24(){
+        Assert.assertEquals(points.get(24).getInArea(),results.get(24));
+    }
+
+
+    @Test
+    public void checkPoint25(){
+        Assert.assertEquals(points.get(25).getInArea(),results.get(25));
+    }
+
+
+    @Test
+    public void checkPoint26(){
+        Assert.assertEquals(points.get(26).getInArea(),results.get(26));
+    }
+
+
+    @Test
+    public void checkPoint27(){
+        Assert.assertEquals(points.get(27).getInArea(),results.get(27));
+    }
+
+
+    @Test
+    public void checkPoint28(){
+        Assert.assertEquals(points.get(28).getInArea(),results.get(28));
+    }
+
+
+    @Test
+    public void checkPoint29(){
+        Assert.assertEquals(points.get(29).getInArea(),results.get(29));
+    }
+
+
+    @Test
+    public void checkPoint30(){
+        Assert.assertEquals(points.get(30).getInArea(),results.get(30));
+    }
+
+
+    @Test
+    public void checkPoint31(){
+        Assert.assertEquals(points.get(31).getInArea(),results.get(31));
+    }
+
+
+    @Test
+    public void checkPoint32(){
+        Assert.assertEquals(points.get(32).getInArea(),results.get(32));
+    }
+
+
+    @Test
+    public void checkPoint33(){
+        Assert.assertEquals(points.get(33).getInArea(),results.get(33));
+    }
+
+
+    @Test
+    public void checkPoint34(){
+        Assert.assertEquals(points.get(34).getInArea(),results.get(34));
+    }
+
+
 
 
 
