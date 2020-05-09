@@ -240,8 +240,4 @@ public class PointTest {
         Assert.assertEquals(points.get(34).getInArea(),results.get(34));
     }
 
-
-
-
-
 }
