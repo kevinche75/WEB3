@@ -15,7 +15,7 @@ import java.util.List;
 public class PointTest {
    private List<Point> points;
     private List<Boolean> results;
-  public   PointTest(){
+  public  PointTest(){
 
         points = new ArrayList<>();
         results=new ArrayList<>();
@@ -363,6 +363,65 @@ public class PointTest {
     @Test
     public void checkPoint57(){
         Assert.assertEquals(points.get(57).getInArea(),results.get(57));
+    }
+
+    @Test
+    public void checkPoint58(){
+        Assert.assertEquals(points.get(58).getInArea(),results.get(58));
+    }
+    @Test
+    public void checkPoint59(){
+        Assert.assertEquals(points.get(59).getInArea(),results.get(59));
+    }
+
+    @Test
+    public void checkPoint60(){
+        Assert.assertEquals(points.get(60).getInArea(),results.get(60));
+    }
+
+    @Test
+    public void checkPoint61(){
+        Assert.assertEquals(points.get(61).getInArea(),results.get(61));
+    }
+
+    @Test
+    public void checkPoint62(){
+        Assert.assertEquals(points.get(62).getInArea(),results.get(62));
+    }
+
+    @Test
+    public void checkPoint63(){
+        Assert.assertEquals(points.get(63).getInArea(),results.get(63));
+    }
+
+    @Test
+    public void checkPoint64(){
+        Assert.assertEquals(points.get(64).getInArea(),results.get(64));
+    }
+
+    @Test
+    public void checkPoint65(){
+        Assert.assertEquals(points.get(65).getInArea(),results.get(65));
+    }
+
+    @Test
+    public void checkPoint66(){
+        Assert.assertEquals(points.get(66).getInArea(),results.get(66));
+    }
+
+    @Test
+    public void checkPoint67(){
+        Assert.assertEquals(points.get(67).getInArea(),results.get(67));
+    }
+
+    @Test
+    public void checkPoint68(){
+        Assert.assertEquals(points.get(68).getInArea(),results.get(68));
+    }
+
+    @Test
+    public void checkPoint69(){
+        Assert.assertEquals(points.get(69).getInArea(),results.get(69));
     }
 
 
